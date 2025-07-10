@@ -117,33 +117,40 @@ export default function HomePage() {
       <main className="p-2 sm:p-4 md:ml-64 w-full mt-16 md:mt-0">
         {view === 'today' && (
           <div>
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-bold">Today’s Tasks</h2>
-              <button onClick={openNewTaskModal} className="bg-blue-600 text-white px-4 py-2 rounded">+ Add Task</button>
-            </div>
+           <h2 className="text-xl font-bold mb-4">Today’s Tasks</h2>
 
-            <div className="flex gap-4 mb-4">
-              <input
-                type="text"
-                placeholder="Search tasks..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="border px-3 py-2 rounded w-full max-w-md"
-              />
-              <select
-                value={tagFilter}
-                onChange={(e) => setTagFilter(e.target.value)}
-                className="border px-3 py-2 rounded"
-              >
-                <option value="">All Tags</option>
-                <option value="Work">Work</option>
-                <option value="Personal">Personal</option>
-              </select>
-            </div>
+<div className="flex flex-col sm:flex-row gap-4 mb-2">
+  <input
+    type="text"
+    placeholder="Search tasks..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    className="border px-3 py-2 rounded w-full max-w-md"
+  />
+  <select
+    value={tagFilter}
+    onChange={(e) => setTagFilter(e.target.value)}
+    className="border px-3 py-2 rounded w-full sm:w-auto"
+  >
+    <option value="">All Tags</option>
+    <option value="Work">Work</option>
+    <option value="Personal">Personal</option>
+  </select>
+</div>
+
+<div className="mb-4">
+  <button
+    onClick={openNewTaskModal}
+    className="bg-blue-600 text-white px-4 py-2 rounded w-full sm:w-auto"
+  >
+    + Add Task
+  </button>
+</div>
+
 
             {recentlyDeleted && (
               <button onClick={handleUndoDelete} className="bg-yellow-500 text-white px-4 py-2 rounded mb-4">
-                Undo Delete
+                Undo 
               </button>
             )}
 
