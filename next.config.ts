@@ -5,20 +5,18 @@ const nextConfig: NextConfig = {
 };
 
 // next.config.js
+// next.config.js
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const withPWA = require('next-pwa')({
-  dest: 'public',
+const withPWA = require("next-pwa")({
+  dest: "public", // tells where to output service worker
   register: true,
   skipWaiting: true,
-  swSrc: 'public/sw.js', // use a TypeScript service worker
 });
-
 
 module.exports = withPWA({
   reactStrictMode: true,
 });
+
 
 
 export default nextConfig;
